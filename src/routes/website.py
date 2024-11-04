@@ -36,18 +36,20 @@ def build_page(file: str, page: str | None = None) -> str:
 
 
 def set_head(file: str, page: str | None = None) -> str:
-    return f"{open('static/components/head.html').read()}{file}"
+    return f"{open('static/components/head.html').read()}{file}".replace(
+        "AOW - PAGENAME", f"AOW - {'Dashboard' if page is None else page.title()}"
+    )
 
 
 def set_navbar(file: str, page: str | None = None) -> str:
     file = file.replace(
         "<!--NAVBAR-->", f"{open('static/components/navbar.html').read()}"
     )
-    if page is None:
-        file = file.replace('<a href="/">', '<a class="active" href="/">')
-    else:
-        file = file.replace(f'<a href="/{page}">', f'<a class="active" href="/{page}">')
-    return file
+    return (
+        file.replace('<a href="/">', '<a class="active" href="/">')
+        if page is None
+        else file.replace(f'<a href="/{page}">', f'<a class="active" href="/{page}">')
+    )
 
 
 def set_script(file: str, page: str | None = None) -> str:
