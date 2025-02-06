@@ -42,9 +42,7 @@ def set_head(file: str, page: str | None = None) -> str:
 
 
 def set_navbar(file: str, page: str | None = None) -> str:
-    file = file.replace(
-        "<!--NAVBAR-->", f"{open('static/components/navbar.html').read()}"
-    )
+    file = file.replace("<!--NAVBAR-->", f"{open('static/components/navbar.html').read()}")
     return (
         file.replace('<a href="/">', '<a class="active" href="/">')
         if page is None
@@ -53,8 +51,4 @@ def set_navbar(file: str, page: str | None = None) -> str:
 
 
 def set_script(file: str, page: str | None = None) -> str:
-    return (
-        file.replace("<!--SCRIPT-->", f'<script defer src="/scripts/{page}"></script>')
-        if page is not None
-        else file
-    )
+    return file.replace("<!--SCRIPT-->", f'<script defer src="/scripts/{page}"></script>') if page is not None else file
