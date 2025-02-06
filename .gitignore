@@ -1,6 +1,7 @@
 .pytest_cache
 .vscode
 .mypy_cache
-__pycache__
+*__pycache__
 .venv
+.ruff_cache
 data

@@ -14,11 +14,13 @@ get dependencies with:
 
 run server with:
 
-    uv run flask --app src/server.py run
+    uv run flask --app src/server.py run -p 8080
 
 run debug mode with:
 
-    uv run flask --app src/server.py run --debug
+    uv run flask --app src/server.py run -p 8080 --debug
+
+-p 8080 sets the port to 8080, this is optional
 
 ### pip
 
@@ -36,8 +38,10 @@ get dependencies with:
 
 run server with:
 
-    flask --app server.py run
+    flask --app server.py run -p 8080
 
 run debug mode with:
 
-    flask --app server.py run --debug
+    flask --app server.py run -p 8080 --debug
+
+-p 8080 sets the port to 8080, this is optional
